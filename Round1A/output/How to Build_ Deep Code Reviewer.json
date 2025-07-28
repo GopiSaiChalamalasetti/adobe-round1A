@@ -1,0 +1,250 @@
+{
+  "title": "Building a Deep Code Reviewer VS Code Extension – Step-by-Step Guide",
+  "outline": [
+    {
+      "level": "H1",
+      "text": "Building a Deep Code Reviewer VS Code",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "Extension – Step-by-Step Guide",
+      "page": 2
+    },
+    {
+      "level": "H1",
+      "text": "1. Environment Setup for VS Code Extension",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "Development",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "Yeoman Generator (Yo Code): Microsoft provides a Yeoman generator to scaffold a new",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "Tip: The Yeoman scaffold also sets up a launch configuration for debugging. You can set",
+      "page": 3
+    },
+    {
+      "level": "H1",
+      "text": "2. Choosing a Development Language: JavaScript vs.",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "Python",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "TypeScript/JavaScript . This offers seamless access to the VS Code Extension API and easy",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "Summary: For most developers, building the extension in JavaScript/TypeScript is easiest",
+      "page": 4
+    },
+    {
+      "level": "H1",
+      "text": "3. Selecting and Integrating a Large Language Model",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "(LLM)",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "Embedding the LLM into the Extension: There are a few integration patterns:",
+      "page": 4
+    },
+    {
+      "level": "H2",
+      "text": "Direct API Calls (Cloud LLM): If using a service like OpenAI, integrate their REST API in your",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "Studio or the Hugging Face Inference API can serve models locally ( GitHub -",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "Working with Context Size: Be mindful of the model’s context window. GPT-4 and CodeT5+",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "Model Selection Tip: For an MVP, using GPT-4 via API might get you quicker results (no ML",
+      "page": 6
+    },
+    {
+      "level": "H1",
+      "text": "4. Prompt Engineering: Crafting Effective Code Review",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "Prompts",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "Provide Code with Context: Include the code to be reviewed in the prompt. If using OpenAI’s",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "Testing your prompt: Before wiring everything in the extension, it’s useful to prototype your",
+      "page": 7
+    },
+    {
+      "level": "H1",
+      "text": "5. Fine-Tuning the LLM to Catch More Subtle Mistakes",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "(Optional, Advanced)",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "Adaptation) to fine-tune efficiently on consumer hardware. NVIDIA’s research shows",
+      "page": 8
+    },
+    {
+      "level": "H1",
+      "text": "6. Implementing the Extension Logic – Commands, LLM",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "Calls, and Results",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "6.1 Registering a Command: In your extension’s activation file ( extension.ts or .js ), use",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "6.2 Gathering the Code Context: Inside the command’s callback, determine what code to",
+      "page": 9
+    },
+    {
+      "level": "H2",
+      "text": "6.3 Sending the Code to the LLM: Use the integration method you chose in Step 3. For",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "6.4 Processing the LLM’s Response: The critique we get back is presumably a structured",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "As Editor Annotations (Preferred for issues): A polished approach is to mark up the code",
+      "page": 11
+    },
+    {
+      "level": "H2",
+      "text": "6.5 Providing Fixes or Quick Actions (Optional): As a bonus feature, if the LLM suggests",
+      "page": 12
+    },
+    {
+      "level": "H1",
+      "text": "7. UI/UX Design Tips for a VS Code-integrated Tool",
+      "page": 12
+    },
+    {
+      "level": "H1",
+      "text": "8. Testing, Debugging, and Deployment Best Practices",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "Testing the Extension Functionality: Develop a set of test cases – code snippets or files with",
+      "page": 14
+    },
+    {
+      "level": "H1",
+      "text": "part of your CI to catch regressions.",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "Debugging: Use VS Code’s debugger to step through your extension code. If something isn’t",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "Fine-Tuned Model Debugging: If using a local model, it’s like debugging any server",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "Resource Usage: If running heavy models, monitor memory/CPU. It might be wise to not load",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "Deployment (Packaging the Extension): Once satisfied, you can package your extension into",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "Performance Testing: Before full deployment, test the extension in a “real” project",
+      "page": 15
+    },
+    {
+      "level": "H1",
+      "text": "9. Real-World Use Cases and Evaluation Metrics",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "Use Case 1: AI-Augmented Peer Review. Imagine a scenario in a team: a developer opens a",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "Use Case 2: Learning and Onboarding Tool. A junior developer writing code can use the",
+      "page": 16
+    },
+    {
+      "level": "H2",
+      "text": "Use Case 3: Continuous Integration (CI) Guard : Beyond VS Code, your project could be",
+      "page": 16
+    },
+    {
+      "level": "H2",
+      "text": "Evaluating the Effectiveness: To measure the success of the “Deep Code Reviewer”:",
+      "page": 16
+    },
+    {
+      "level": "H2",
+      "text": "Continuous Improvement: The AI code reviewer can improve over time. As you gather",
+      "page": 17
+    },
+    {
+      "level": "H1",
+      "text": "10. Conclusion",
+      "page": 17
+    },
+    {
+      "level": "H2",
+      "text": "Sources:",
+      "page": 17
+    }
+  ]
+}
